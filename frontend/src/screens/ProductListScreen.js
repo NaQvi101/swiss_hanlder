@@ -358,13 +358,13 @@ export default function ProductListScreen(props) {
               />
               <label
                 htmlFor="file-upload"
-                className="block cursor-pointer rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 outline-none"
+                className="block cursor-pointer rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#cb202c] outline-none"
               >
                 Upload ZIP File
               </label>
             </div>
             <button
-              className="block rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500  outline-none "
+              className="block rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#cb202c]  outline-none "
               type="button"
               onClick={handleAddProductClick}
             >

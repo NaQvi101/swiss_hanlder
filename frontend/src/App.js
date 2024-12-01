@@ -134,7 +134,7 @@ function App() {
             }
           >
             <Nav className="flex-column text-[#212529] w-100 py-4">
-              <Nav.Item className="mb-3 px-3">
+              <Nav.Item className="px-3 mb-3">
                 <strong className="text-2xl font-bold text-[#212529] ">
                   Categories
                 </strong>
@@ -148,7 +148,7 @@ function App() {
                     }}
                     onClick={() => setSidebarIsOpen(false)}
                   >
-                    <Nav.Link className="text-sm font-semibold leading-6 text-[#212529] cursor-pointer px-3 py-2 transition-all hover:shadow-xl hover:bg-orange-600 hover:text-white">
+                    <Nav.Link className="text-sm font-semibold leading-6 text-[#212529] cursor-pointer px-3 py-2 transition-all hover:shadow-xl hover:bg-[#cb202c] hover:text-white">
                       {category?.name}
                     </Nav.Link>
                   </LinkContainer>

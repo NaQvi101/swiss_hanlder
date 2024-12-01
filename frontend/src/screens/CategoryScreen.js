@@ -52,7 +52,7 @@ const CategoryScreen = () => {
                 Product Categories
               </h1>
               <button
-                className="block rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500  outline-none "
+                className="block rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#cb202c]  outline-none "
                 type="button"
                 onClick={() => {
                   setShowForm(true);

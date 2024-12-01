@@ -108,7 +108,7 @@ export default function PaymentMethodScreen() {
                 <button
                   onClick={submitHandler}
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-bold transition-all leading-6 text-white hover:text-orange-600 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-[#cb202c] px-3 py-1.5 text-sm font-bold transition-all leading-6 text-white hover:text-[#cb202c] shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Continue
                 </button>

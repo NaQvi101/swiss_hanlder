@@ -34,7 +34,7 @@ const SuccessScreen = () => {
     if (!transactionDetails)
         return (
             <div className="flex justify-center items-center h-screen">
-                <div className="text-orange-500 text-lg">No details available</div>
+                <div className="text-[#cb202c] text-lg">No details available</div>
             </div>
         );
 
@@ -42,7 +42,7 @@ const SuccessScreen = () => {
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white shadow-md rounded-lg p-8">
                 <div className="text-center mb-6">
-                    <div className="text-orange-500 text-5xl mb-4">
+                    <div className="text-[#cb202c] text-5xl mb-4">
                         <i className="fas fa-check-circle"></i>
                     </div>
                     <h1 className="text-2xl font-bold text-gray-800">Payment Successful</h1>
@@ -86,7 +86,7 @@ const SuccessScreen = () => {
                 </div>
                 <div className="flex justify-center space-x-4">
                     <button
-                        className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded"
+                        className="bg-[#cb202c] hover:bg-[#cb202c] text-white font-bold py-2 px-4 rounded"
                         onClick={() => {
                             window.location.href = '/seller/products'; // Update the URL as needed
                         }}

@@ -285,7 +285,7 @@ export default function PlaceOrderScreen() {
                   cart.cartItems.length === 0
                     ? "opacity-50 cursor-not-allowed"
                     : "opacity-100 cursor-pointer"
-                } border border-transparent bg-orange-600 px-4 py-2 text-base font-bold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50`}
+                } border border-transparent bg-[#cb202c] px-4 py-2 text-base font-bold text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50`}
               >
                 Place Order
               </button>

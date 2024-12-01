@@ -75,7 +75,7 @@ export const StoreFrontHeader = () => {
               <h1 className="text-white text-6xl font-bold">
                 Where Supply meets demand.
               </h1>
-              {/* <button className="inline-block rounded-md border-2  border-orange-600 bg-orange-600 px-8 py-3 text-white hover:bg-orange-600/65 font-bold transition-all">
+              {/* <button className="inline-block rounded-md border-2  border-[#cb202c] bg-[#cb202c] px-8 py-3 text-white hover:bg-[#cb202c]/65 font-bold transition-all">
                   Shop Collection
                 </button> */}
             </div>
