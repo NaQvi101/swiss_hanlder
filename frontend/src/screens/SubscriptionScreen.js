@@ -65,16 +65,25 @@ const SubscriptionScreen = () => {
 
             <div className="grid max-w-4xl grid-cols-1 gap-8 mx-auto md:grid-cols-2">
                 <div className="p-6 transition bg-white rounded-lg shadow-lg hover:shadow-2xl">
-                    <h2 className="text-2xl font-bold text-[#cb202c] mb-4">Annual Plan</h2>
-                    <p className="mb-4 text-gray-700">Pay a one-time fee to upload your products and enjoy uninterrupted access for the entire year. Ideal for businesses looking for long-term stability and growth.</p>
-                    <p className="mb-6 text-lg font-semibold text-gray-800">€325 per year</p>
+                    <h2 className="text-2xl font-bold text-[#cb202c] mb-4">Annual Plan</h2>                   
+                    <p className="mb-4 text-gray-700"><b>Swiss handel offers a comprehensive yearly membership for established companies to expand market reach and solidify business relationships effectively.</b></p>
+                    <p className="mb-4 text-gray-700"><b>Post Unlimited Products :</b> Suppliers can list an unlimited number of products, showcasing their full inventory to potential European buyers.</p>
+                    <p className="mb-4 text-gray-700"><b>Connect with Clients : </b>Suppliers can establish connections with European businesses, expanding their network and finding new opportunities.</p>
+                    <p className="mb-4 text-gray-700"><b>Communicate Directly with Buyers :</b> A built-in messaging system allows suppliers to communicate directly with potential buyers, negotiating deals or addressing inquiries in real-time.</p>
+                    <p className="mb-4 text-gray-700"><b>Post Videos of Proof of Production :</b> Suppliers can upload videos that demonstrate their production capabilities, providing transparency and building trust with European clients.</p>
+                    <p className="mb-6 text-lg font-semibold text-gray-800">€699 per year</p>
                     <button onClick={() => handlePayment('annual')} className="w-full bg-[#cb202c] text-white py-2 px-4 rounded hover:bg-[#cb202c] transition"> Pay </button>
                 </div>
                 <div className="p-6 transition bg-white rounded-lg shadow-lg hover:shadow-2xl">
-                    <h2 className="text-2xl font-bold text-[#cb202c] mb-4">6-Month Plan</h2>
-                    <p className="mb-4 text-gray-700">Perfect for first-time users. Try our platform for six months before committing to the yearly plan. Future renewals will be billed annually.</p>
-                    <p className="mb-6 text-lg font-semibold text-gray-800">€149 one-time</p>
-                    <button disabled={userInfo.subscription !== null} onClick={() => handlePayment('6-month')} className={`w-full py-2 px-4 rounded transition ${userInfo.subscription !== null ? 'bg-gray-400 text-gray-700 cursor-not-allowed' : 'bg-[#cb202c] text-white hover:bg-[#cb202c]'}`}> Pay </button>
+                    <h2 className="text-2xl font-bold text-[#cb202c] mb-4">8-Month Plan</h2>
+                    <p  className="mb-4 text-gray-700"> <b>Swiss handel offers a 8-month trial for new companies, designed to enhance efficiency and provide an opportunity to evaluate market potential.</b></p>
+                    <p className="mb-4 text-gray-700"><b>Post Unlimited Products :</b> Suppliers can list an unlimited number of products, showcasing their full inventory to potential European buyers.</p>
+                    <p className="mb-4 text-gray-700"><b>Connect with Clients :</b> Suppliers can establish connections with European businesses, expanding their network and finding new opportunities.</p>
+                    <p className="mb-4 text-gray-700"><b>Communicate Directly with Buyers :</b> A built-in messaging system allows suppliers to communicate directly with potential buyers, negotiating deals or addressing inquiries in real-time.</p>
+                    <p className="mb-4 text-gray-700"><b>Post Videos of Proof of Production :</b> Suppliers can upload videos that demonstrate their production capabilities, providing transparency and building trust with European clients.</p>
+
+                    <p className="mb-6 text-lg font-semibold text-gray-800">€325 one-time</p>
+                    <button disabled={userInfo.subscription !== null} onClick={() => handlePayment('8-month')} className={`w-full py-2 px-4 rounded transition ${userInfo.subscription !== null ? 'bg-gray-400 text-gray-700 cursor-not-allowed' : 'bg-[#cb202c] text-white hover:bg-[#cb202c]'}`}> Pay </button>
                 </div>
             </div>
 

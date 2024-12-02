@@ -48,11 +48,11 @@ stripeRouter.post('/checkout-session', isAuth, subscriptionValidation, async (re
       return res.status(400).send({ message: 'Plan and user info are required.' });
     }
 
-    if (plan === '6-month' && userInfo.subscription !== null) {
-      return res.status(400).send('6-month plan can only be used for first-time users.');
+    if (plan === '8-month' && userInfo.subscription !== null) {
+      return res.status(400).send('8-month plan can only be used for first-time users.');
     }
 
-    const priceId = plan === '6-month' ? process.env.SIX_MONTH_PRICE_ID : process.env.ANNUAL_PRICE_ID;
+    const priceId = plan === '8-month' ? process.env.EIGHT_MONTH_PRICE_ID : process.env.ANNUAL_PRICE_ID;
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -63,8 +63,8 @@ stripeRouter.post('/checkout-session', isAuth, subscriptionValidation, async (re
         },
       ],
       mode: 'payment',
-      success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/subscription?cancel=true`,
+      success_url: `${process.env.FRONTEND_ENDPOINT}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.FRONTEND_ENDPOINT}/subscription?cancel=true`,
       metadata: {
         userId: userInfo._id,
         plan: plan,
@@ -93,7 +93,7 @@ stripeRouter.post('/payment-webhook', async (req, res) => {
       const plan = session.metadata.plan;
 
       const endDate = plan === 'annual' ? new Date(startDate.setFullYear(startDate.getFullYear() + 1))
-        : new Date(startDate.setMonth(startDate.getMonth() + 6));
+        : new Date(startDate.setMonth(startDate.getMonth() + 8));
 
       const subscription = new Subscription({
         userId,

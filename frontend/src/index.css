@@ -11,6 +11,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.nav-dropdown-item:hover {
+  color: #cb202c !important; /* Red color */
+}
+
 .site-container {
   min-height: 100vh;
 }

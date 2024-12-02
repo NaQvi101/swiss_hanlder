@@ -80,9 +80,9 @@ export const subscriptionValidation = async (req, res, next) => {
         }
     }
 
-    // If the user has already used a 6-month subscription
-    if (userInfo.subscription !== null && plan === '6-month') {
-        res.status(403).send({ message: '6-month subscription is not available' });
+    // If the user has already used a 8-month subscription
+    if (userInfo.subscription !== null && plan === '8-month') {
+        res.status(403).send({ message: '8-month subscription is not available' });
     }
 
     next();

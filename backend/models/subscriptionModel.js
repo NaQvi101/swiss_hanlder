@@ -10,7 +10,7 @@ const subscriptionSchema = new Schema({
     },
     plan: {
         type: String,
-        enum: ['6-month', 'annual'],
+        enum: ['8-month', 'annual'],
         required: true
     },
     stripeSubscriptionId: {
