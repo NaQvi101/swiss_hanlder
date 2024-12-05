@@ -57,24 +57,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-const updateUserInfo = async () => {
-  try {
-    const { data } = await axios.get(${API_URL}/api/users/${userInfo._id}, {
-      headers: { Authorization: Bearer ${userInfo.token} },
-    });
-    const updatedUserInfo = { ...userInfo, ...data };
-    
-    // Update local storage and context
-    localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
-    dispatch({ type: 'USER_SIGNIN', payload: updatedUserInfo });
-    
-  } catch (error) {
-    console.error('Failed to update user information.');
-  }
-};
-useEffect(() => {
-updateUserInfo();
-}, []);
+
 
 
 
@@ -163,6 +146,25 @@ export default function ProductListScreen(props) {
       fetchData();
     }
   }, [page, userInfo, successDelete, sellerMode, showForm]);
+
+  const updateUserInfo = async () => {
+    try {
+      const { data } = await axios.get(`${API_URL}/api/users/${userInfo._id}`, {
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      });
+      const updatedUserInfo = { ...userInfo, ...data };
+      
+      // Update local storage and context
+      localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+      dispatch({ type: 'USER_SIGNIN', payload: updatedUserInfo });
+      
+    } catch (error) {
+      console.error('Failed to update user information.');
+    }
+  };
+  useEffect(() => {
+  updateUserInfo();
+  }, []);
 
   const createHandler = async () => {
     if (window.confirm("Are you sure to create?")) {
