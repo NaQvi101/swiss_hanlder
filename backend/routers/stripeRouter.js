@@ -91,10 +91,8 @@ stripeRouter.post('/payment-webhook', async (req, res) => {
 
       const userId = session.metadata.userId;
       const plan = session.metadata.plan;
-      const startDate = new Date();
-      const endDate = plan === 'annual' ? new Date(startDate.setFullYear(startDate.getFullYear() + 1))
-        : new Date(startDate.setMonth(startDate.getMonth() + 8));
-
+      const startDate = new Date(); // Initialize start date
+      const endDate = plan === 'annual' ? new Date(new Date(startDate).setFullYear(startDate.getFullYear() + 1)): new Date(new Date(startDate).setMonth(startDate.getMonth() + 6));
       const subscription = new Subscription({
         userId,
         plan,

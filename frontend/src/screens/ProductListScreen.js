@@ -57,6 +57,27 @@ const reducer = (state, action) => {
       return state;
   }
 };
+const updateUserInfo = async () => {
+  try {
+    const { data } = await axios.get(${API_URL}/api/users/${userInfo._id}, {
+      headers: { Authorization: Bearer ${userInfo.token} },
+    });
+    const updatedUserInfo = { ...userInfo, ...data };
+    
+    // Update local storage and context
+    localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+    dispatch({ type: 'USER_SIGNIN', payload: updatedUserInfo });
+    
+  } catch (error) {
+    console.error('Failed to update user information.');
+  }
+};
+useEffect(() => {
+updateUserInfo();
+}, []);
+
+
+
 
 export default function ProductListScreen(props) {
   const [
@@ -345,7 +366,7 @@ export default function ProductListScreen(props) {
   return (
     <div>
       <div className="container py-6">
-        <div className="flex align-middle justify-between items-center w-full">
+        <div className="flex items-center justify-between w-full align-middle">
           <h1 className="text-3xl font-bold text-gray-700">Products</h1>
           <div className="flex flex-row space-x-4">
             <div>
@@ -433,8 +454,8 @@ export default function ProductListScreen(props) {
                   {productList?.map((item) => {
                     return (
                       <tr key="{person.email}">
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                          <div className="min-w-20 min-h-20 h-20 w-20 relative">
+                        <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0">
+                          <div className="relative w-20 h-20 min-w-20 min-h-20">
                             <img
                               src={item?.image}
                               className="absolute inset-0 object-cover w-full h-full"
@@ -442,22 +463,22 @@ export default function ProductListScreen(props) {
                             />
                           </div>
                         </td>
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                        <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0">
                           {item?._id}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {item?.name}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {item?.price}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {item?.category}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {item?.brand}
                         </td>
-                        <td className="relative cursor-pointer whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm flex alinmi items-center gap-3 font-medium sm:pr-0">
+                        <td className="relative flex items-center gap-3 py-4 pl-3 pr-4 text-sm font-medium text-right cursor-pointer whitespace-nowrap alinmi sm:pr-0">
                           <Button
                             type="button"
                             variant="light"
@@ -501,7 +522,7 @@ export default function ProductListScreen(props) {
         ) : (
           <>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[500px]">
-              <div className="bg-white px-6 py-12 rounded-lg shadow sm:rounded-lg sm:px-12">
+              <div className="px-6 py-12 bg-white rounded-lg shadow sm:rounded-lg sm:px-12">
                 <div className="space-y-6">
                   <div>
                     <label
