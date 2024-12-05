@@ -32,12 +32,13 @@ db.once("open", () => {
 //     })
 //     .catch(err => console.log(err.message));
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://192.168.137.121:3000", "http://77.37.51.85"],
+  origin: "*",
   optionsSuccessStatus: 200,
 };
 
 const app = express();
 app.use(cors(corsOptions));
+app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRouter);
 app.use(express.json({ limit: "500mb" })); // Default is 100kb
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -57,7 +58,6 @@ app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/stripe", stripeRouter);
-app.use("/api/webhook", express.raw({ type: "application/json" }), stripeRouter);
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "/frontend/build")));
