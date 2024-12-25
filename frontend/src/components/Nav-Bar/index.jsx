@@ -37,7 +37,7 @@ function NavBar({
         <LinkContainer to="/">
           <Navbar.Brand className="text-[#cb202c] flex align-middle items-center justify-center hover:text-[#cb202c] transition-all">
             <img src="/logo.png" className="w-10 h-auto mr-1" alt="" />
-            <span className="-mx-1">Turkfy</span>
+            <span className="-mx-1">Swiss Handel</span>
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle

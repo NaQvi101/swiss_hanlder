@@ -72,9 +72,9 @@ export const StoreFrontHeader = () => {
               <div className="h-48 w-full bg-white" />
             </div>
             <div className="relative py-32">
-              <h1 className="text-white text-6xl font-bold">
+              {/*<h1 className="text-white text-6xl font-bold">
                 Where Supply meets demand.
-              </h1>
+              </h1>*/}
               {/* <button className="inline-block rounded-md border-2  border-[#cb202c] bg-[#cb202c] px-8 py-3 text-white hover:bg-[#cb202c]/65 font-bold transition-all">
                   Shop Collection
                 </button> */}
@@ -90,39 +90,21 @@ export const StoreFrontHeader = () => {
             </h2>
             <div className="mx-auto grid max-w-md grid-cols-1 gap-6 px-4 sm:max-w-7xl sm:grid-cols-2 md:grid-cols-4 sm:px-6 lg:px-8">
               {collections?.map((collection) => (
-                <div
-                  key={collection.name}
-                  className="group relative h-96 rounded-lg bg-white shadow-xl sm:aspect-h-5 sm:aspect-w-4 sm:h-auto"
-                >
-                  <div>
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 overflow-hidden rounded-lg"
-                    >
-                      <div className="absolute inset-0 overflow-hidden group-hover:opacity-75">
-                        <img
-                          src={collection.imageSrc}
-                          alt={collection.imageAlt}
-                          className="object-cover object-center"
-                        />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent opacity-50" />
-                    </div>
-                    <div className="absolute inset-0 flex items-end rounded-lg p-6">
-                      <div>
-                        <p aria-hidden="true" className="text-sm text-red-600">
-                          Shop the collection
-                        </p>
-                        <h3 className="mt-1 font-semibold  text-red-600">
-                          <a href={collection.href}>
-                            <span className="absolute inset-0" />
-                            {collection.name}
-                          </a>
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+               <div
+              key={collection.name}
+              className="relative bg-white rounded-lg shadow-xl group"
+            >
+              <div
+                aria-hidden="true"
+                className="overflow-hidden rounded-lg"
+              >
+                <img
+                  src={collection.imageSrc}
+                  alt={collection.imageAlt}
+                  className="object-cover w-full"
+                />
+              </div>
+            </div>
               ))}
             </div>
           </section>

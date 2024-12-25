@@ -187,7 +187,7 @@ export default function StoreFront() {
             Our perks
           </h2>
 
-          <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+         {/*<div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
             <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
               {perks?.map((perk) => (
                 <div
@@ -214,7 +214,7 @@ export default function StoreFront() {
                 </div>
               ))}
             </div>
-          </div>
+          </div>*/}
         </section>
       </main>
 
@@ -228,10 +228,10 @@ export default function StoreFront() {
               {/* Image section */}
               <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
                 <Link
-                  className="text-[#cb202c]-600 text-xl font-bold transition-all"
+                  className="text-[#cb202c]-600 text-sm font-bold transition-all"
                   to="/"
                 >
-                  Turkfy
+                  Swiss Handel
                 </Link>
               </div>
 
@@ -328,7 +328,7 @@ export default function StoreFront() {
           <div className="mx-auto max-w-7xl px-4">
             <div className="py-4 text-center">
               <p className="text-center text-sm font-semibold leading-6 text-[#212529] cursor-pointer ">
-                &copy; 2021 Your Company, Inc. All rights reserved.
+                &copy; 2024 Swiss Handel, Inc. All rights reserved.
               </p>
             </div>
           </div>
