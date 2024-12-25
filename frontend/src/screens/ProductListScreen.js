@@ -149,21 +149,20 @@ export default function ProductListScreen(props) {
 
   const updateUserInfo = async () => {
     try {
-      const { data } = await axios.get(`${API_URL}/api/users/${userInfo._id}`, {
+      const { data } = await axios.get(`${API_URL}api/users/seller/${userInfo._id}`, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
       const updatedUserInfo = { ...userInfo, ...data };
-      
       // Update local storage and context
       localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
       dispatch({ type: 'USER_SIGNIN', payload: updatedUserInfo });
-      
     } catch (error) {
       console.error('Failed to update user information.');
     }
   };
   useEffect(() => {
   updateUserInfo();
+  console.log('Called UserInfo UseEffect');
   }, []);
 
   const createHandler = async () => {
@@ -359,10 +358,13 @@ export default function ProductListScreen(props) {
 
 
   const handleAddProductClick = () => {
-    if (!userInfo?.isAdmin && (!userInfo.subscription || userInfo.subscription.endDate < new Date())) {
-      navigate('/subscription');
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if (!userInfo?.isAdmin && (!userInfo.subscription || new Date(userInfo.subscription.endDate) < new Date())) {
+       navigate('/subscription');
     }
-    setShowForm(true);
+    else{
+          setShowForm(true);
+    }
   };
 
   return (
@@ -371,7 +373,7 @@ export default function ProductListScreen(props) {
         <div className="flex items-center justify-between w-full align-middle">
           <h1 className="text-3xl font-bold text-gray-700">Products</h1>
           <div className="flex flex-row space-x-4">
-            <div>
+            {userInfo?.isAdmin && <div>
               <input
                 type="file"
                 id="file-upload"
@@ -385,7 +387,7 @@ export default function ProductListScreen(props) {
               >
                 Upload ZIP File
               </label>
-            </div>
+            </div>}
             <button
               className="block rounded-md bg-[#cb202c] px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#cb202c]  outline-none "
               type="button"

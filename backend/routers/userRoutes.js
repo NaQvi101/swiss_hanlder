@@ -31,7 +31,7 @@ userRouter.get(
 userRouter.get(
   "/seller/:id",
   expressAsyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).populate("subscription");
 
     if (user) {
       res.send(user);

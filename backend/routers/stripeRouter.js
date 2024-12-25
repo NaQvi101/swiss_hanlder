@@ -63,8 +63,8 @@ stripeRouter.post('/checkout-session', isAuth, subscriptionValidation, async (re
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.FRONTEND_ENDPOINT}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.FRONTEND_ENDPOINT}/subscription?cancel=true`,
+      success_url: `http://www.swisshandel.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `http://www.swisshandel.com/subscription?cancel=true`,
       metadata: {
         userId: userInfo._id,
         plan: plan,
