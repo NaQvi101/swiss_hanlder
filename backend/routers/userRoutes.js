@@ -18,6 +18,23 @@ userRouter.get(
 );
 
 userRouter.get(
+  "/featured-sellers",
+  expressAsyncHandler(async (req, res) => {
+    try {
+      // Fetch top 10 sellers sorted by rating and number of reviews
+      const sellers = await User.find({ isSeller: true })
+        .select("name seller rating numReviews videoUrl") // Select only relevant fields
+        .sort({ "seller.rating": -1, "seller.numReviews": -1 }) // Sort by highest rating, then reviews
+        .limit(10); // Limit to 10 sellers
+
+      res.status(200).json(sellers);
+    } catch (error) {
+      res.status(500).json({ message: "Error fetching featured sellers", error: error.message });
+    }
+  })
+);
+
+userRouter.get(
   "/top-sellers",
   expressAsyncHandler(async (req, res) => {
     const topSellers = await User.find({ isSeller: true })
