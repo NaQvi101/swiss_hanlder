@@ -34,7 +34,7 @@ export const StoreFrontHeader = () => {
     <div className="bg-white">
       <main>
         {/* Hero section */}
-        <div className="relative">                  
+        <div className="relative">
           {/* Background image and overlap */}
           <div
             aria-hidden="true"
@@ -72,9 +72,9 @@ export const StoreFrontHeader = () => {
               <div className="h-48 w-full bg-white" />
             </div>
             <div className="relative py-32">
-              {/*<h1 className="text-white text-6xl font-bold">
-                Where Supply meets demand.
-              </h1>*/}
+              <h1 className="text-white text-6xl font-bold">
+                Connecting The World With Switzerland
+              </h1>
               {/* <button className="inline-block rounded-md border-2  border-[#cb202c] bg-[#cb202c] px-8 py-3 text-white hover:bg-[#cb202c]/65 font-bold transition-all">
                   Shop Collection
                 </button> */}
@@ -90,21 +90,21 @@ export const StoreFrontHeader = () => {
             </h2>
             <div className="mx-auto grid max-w-md grid-cols-1 gap-6 px-4 sm:max-w-7xl sm:grid-cols-2 md:grid-cols-4 sm:px-6 lg:px-8">
               {collections?.map((collection) => (
-               <div
-              key={collection.name}
-              className="relative bg-white rounded-lg shadow-xl group"
-            >
-              <div
-                aria-hidden="true"
-                className="overflow-hidden rounded-lg"
-              >
-                <img
-                  src={collection.imageSrc}
-                  alt={collection.imageAlt}
-                  className="object-cover w-full"
-                />
-              </div>
-            </div>
+                <div
+                  key={collection.name}
+                  className="relative bg-white rounded-lg shadow-xl group"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="overflow-hidden rounded-lg"
+                  >
+                    <img
+                      src={collection.imageSrc}
+                      alt={collection.imageAlt}
+                      className="object-cover w-full"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           </section>
