@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -11,6 +11,8 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { StoreFrontHeader } from "./Header";
 import { StoreFrontProducts } from "./Products";
 import { Link } from "react-router-dom";
+import CustomCarousel from "../CustomCarousel";
+import { API_URL } from "../../utils";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -171,6 +173,25 @@ function classNames(...classes) {
 
 export default function StoreFront() {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const [sellers, setSellers] = useState([]);
+
+  useEffect(() => {
+    const fetchSellers = async () => {
+      try {
+        const response = await fetch(`${API_URL}api/users/featured-sellers`);
+        const data = await response.json();
+        setSellers(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching sellers:', error);
+      }
+    };
+
+    fetchSellers();
+  }, []);
+
 
   return (
     <div className="bg-white mx-auto">
@@ -178,6 +199,26 @@ export default function StoreFront() {
         <StoreFrontHeader />
 
         <StoreFrontProducts />
+
+        {loading ? (
+          <div className="flex justify-center items-center py-10">
+            <div className="loader">Loading...</div>
+          </div>
+        ) : (
+          sellers.length > 0 && (
+            <div className="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-10">
+              <div className="md:flex md:items-center md:justify-between">
+                <h2
+                  id="favorites-heading"
+                  className="text-4xl font-bold text-gray-700"
+                >
+                  Featured Sellers
+                </h2>
+              </div>
+              <CustomCarousel sellers={sellers} />
+            </div>
+          )
+        )}
 
         <section
           aria-labelledby="perks-heading"
@@ -187,7 +228,7 @@ export default function StoreFront() {
             Our perks
           </h2>
 
-         {/*<div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          {/*<div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
             <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
               {perks?.map((perk) => (
                 <div
