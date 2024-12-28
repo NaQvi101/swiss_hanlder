@@ -158,11 +158,11 @@ export default function ProductListScreen(props) {
       dispatch({ type: 'USER_SIGNIN', payload: updatedUserInfo });
     } catch (error) {
       console.error('Failed to update user information.');
-    }
+    }
   };
   useEffect(() => {
-  updateUserInfo();
-  console.log('Called UserInfo UseEffect');
+    updateUserInfo();
+    console.log('Called UserInfo UseEffect');
   }, []);
 
   const createHandler = async () => {
@@ -358,12 +358,17 @@ export default function ProductListScreen(props) {
 
 
   const handleAddProductClick = () => {
+
+    // Temporary check for subscription
+    setShowForm(true);
+    return;
+
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     if (!userInfo?.isAdmin && (!userInfo.subscription || new Date(userInfo.subscription.endDate) < new Date())) {
-       navigate('/subscription');
+      navigate('/subscription');
     }
-    else{
-          setShowForm(true);
+    else {
+      setShowForm(true);
     }
   };
 
