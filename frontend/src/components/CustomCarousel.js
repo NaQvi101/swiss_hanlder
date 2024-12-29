@@ -66,11 +66,11 @@ const CustomCarousel = ({ sellers, autoplay = false, interval = 3000, colors }) 
     };
 
     return (
-        <div className="relative w-full py-8 px-4 bg-gray-100">
+        <div className="relative w-full py-8 px-4 bg-[#cb202c]">
             <button
                 onClick={handlePrev}
                 aria-label="Previous slide"
-                className="absolute left-4 z-10 p-3 text-white bg-[#cb202c] rounded-full hover:bg-gray-600"
+                className="absolute left-4 z-10 p-3 text-[#cb202c] bg-white rounded-full hover:bg-gray-600"
                 style={{ top: "50%", transform: "translateY(-50%)" }}
             >
                 <FaChevronLeft size={20} aria-hidden="true" />
@@ -78,7 +78,7 @@ const CustomCarousel = ({ sellers, autoplay = false, interval = 3000, colors }) 
             <button
                 onClick={handleNext}
                 aria-label="Next slide"
-                className="absolute right-4 z-10 p-3 text-white bg-[#cb202c] rounded-full hover:bg-gray-600"
+                className="absolute right-4 z-10 p-3 text-[#cb202c] bg-white rounded-full hover:bg-gray-600"
                 style={{ top: "50%", transform: "translateY(-50%)" }}
             >
                 <FaChevronRight size={20} aria-hidden="true" />
