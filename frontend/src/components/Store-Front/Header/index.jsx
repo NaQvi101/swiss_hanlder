@@ -71,7 +71,7 @@ export const StoreFrontHeader = () => {
               </div>
             </div>
             <div className="relative py-32">
-              <h1 className="text-white text-6xl font-bold">
+              <h1 className="text-6xl font-bold text-white">
                 Connecting The World With Switzerland
               </h1>
               {/* <button className="inline-block rounded-md border-2  border-[#cb202c] bg-[#cb202c] px-8 py-3 text-white hover:bg-[#cb202c]/65 font-bold transition-all">
@@ -82,7 +82,7 @@ export const StoreFrontHeader = () => {
 
           <section
             aria-labelledby="collection-heading"
-            className="relative -mt-96 sm:mt-0"
+            className="relative mt-4 sm:mt-0"
           >
             <h2 id="collection-heading" className="sr-only">
               Collections
