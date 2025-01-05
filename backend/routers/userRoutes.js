@@ -97,7 +97,7 @@ userRouter.post(
   "/signin",
   expressASyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email }).populate("subscription");
-    const { _id, name, email, password, isAdmin, isSeller, videoUrl, subscription } = user;
+    const { _id, name, email, password, isAdmin, isSeller, videoUrl, subscription, country } = user;
 
     if (user) {
       if (bcrypt.compareSync(req.body.password, password)) {
@@ -108,6 +108,7 @@ userRouter.post(
           isAdmin,
           isSeller,
           videoUrl,
+          country,
           token: generateToken(user),
           subscription
         });
@@ -122,10 +123,11 @@ userRouter.post(
 userRouter.post(
   "/signup",
   expressASyncHandler(async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, country } = req.body;
     const newUser = new User({
       name,
       email,
+      country,
       password: bcrypt.hashSync(password),
     });
 
@@ -140,6 +142,7 @@ userRouter.post(
       isAdmin,
       isSeller,
       token: generateToken(user),
+      country,
       subscription
     });
   })
