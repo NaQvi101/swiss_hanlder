@@ -194,19 +194,17 @@ export default function StoreFront() {
 
 
   return (
-    <div className="bg-white mx-auto">
+    <div className="mx-auto bg-white">
       <main>
         <StoreFrontHeader />
 
-        <StoreFrontProducts />
-
         {loading ? (
-          <div className="flex justify-center items-center py-10">
+          <div className="flex items-center justify-center py-10">
             <div className="loader">Loading...</div>
           </div>
         ) : (
           sellers.length > 0 && (
-            <div className="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-10">
+            <div className="flex flex-col gap-10 px-4 py-10 mx-auto max-w-7xl">
               <div className="md:flex md:items-center md:justify-between">
                 <h2
                   id="favorites-heading"
@@ -219,7 +217,8 @@ export default function StoreFront() {
             </div>
           )
         )}
-
+        <StoreFrontProducts />
+        
         <section
           aria-labelledby="perks-heading"
           className="border-t border-gray-200 bg-gray-50"
@@ -228,7 +227,7 @@ export default function StoreFront() {
             Our perks
           </h2>
 
-          {/*<div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          {/*<div className="px-4 py-24 mx-auto max-w-7xl sm:px-6 sm:py-32 lg:px-8">
             <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
               {perks?.map((perk) => (
                 <div
@@ -238,7 +237,7 @@ export default function StoreFront() {
                   <div className="md:flex-shrink-0">
                     <div className="flow-root">
                       <img
-                        className="-my-1 mx-auto h-24 w-auto"
+                        className="w-auto h-24 mx-auto -my-1"
                         src={perk.imageUrl}
                         alt=""
                       />
@@ -263,8 +262,8 @@ export default function StoreFront() {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-gray-200 py-10">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="py-10 border-t border-gray-200">
             <div className="grid grid-cols-1 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
               {/* Image section */}
               <div className="col-span-1 md:col-span-2 lg:col-start-1 lg:row-start-1">
@@ -277,7 +276,7 @@ export default function StoreFront() {
               </div>
 
               {/* Sitemap sections */}
-              <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
+              <div className="grid grid-cols-2 col-span-6 gap-8 mt-10 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6 lg:col-start-2">
                 <div className="grid grid-cols-1 gap-y-12 sm:col-span-2 sm:grid-cols-2 sm:gap-x-8">
                   <div>
                     <h3 className="text-sm font-medium text-gray-900">
@@ -341,7 +340,7 @@ export default function StoreFront() {
                 <p className="mt-6 text-sm text-gray-500">
                   The latest deals and savings, sent to your inbox weekly.
                 </p>
-                <form className="mt-2 flex sm:max-w-md">
+                <form className="flex mt-2 sm:max-w-md">
                   <label htmlFor="email-address" className="sr-only">
                     Email address
                   </label>
@@ -350,9 +349,9 @@ export default function StoreFront() {
                     type="text"
                     autoComplete="email"
                     required
-                    className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
-                  <div className="ml-4 flex-shrink-0">
+                  <div className="flex-shrink-0 ml-4">
                     <button
                       type="submit"
                       className="inline-block rounded-md border-2  border-[#cb202c] bg-[#cb202c] px-8 py-2 text-white hover:bg-[#cb202c]/70 font-bold transition-all"
@@ -366,7 +365,7 @@ export default function StoreFront() {
           </div>
         </div>
         <div className="bg-white">
-          <div className="mx-auto max-w-7xl px-4">
+          <div className="px-4 mx-auto max-w-7xl">
             <div className="py-4 text-center">
               <p className="text-center text-sm font-semibold leading-6 text-[#212529] cursor-pointer ">
                 &copy; 2024 Swiss Handel, Inc. All rights reserved.

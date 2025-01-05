@@ -71,9 +71,9 @@ export const StoreFrontHeader = () => {
               </div>
             </div>
             <div className="relative py-32">
-              <h1 className="text-6xl font-bold text-white">
-                Connecting The World With Switzerland
-              </h1>
+            <div className="relative py-32">
+  <div style={{ height: '1rem' }}></div>
+</div>
               {/* <button className="inline-block rounded-md border-2  border-[#cb202c] bg-[#cb202c] px-8 py-3 text-white hover:bg-[#cb202c]/65 font-bold transition-all">
                   Shop Collection
                 </button> */}
