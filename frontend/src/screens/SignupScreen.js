@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 import { API_URL, getError } from "../utils";
+import { countriesList } from "../utils";
 
 export default function SignupScreen() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ export default function SignupScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [country, setCountry] = useState("");
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -41,6 +43,7 @@ export default function SignupScreen() {
         name,
         email,
         password,
+        country,
       });
       ctxDispatch({ type: "USER_SIGNIN", payload: data });
       localStorage.setItem("userInfo", JSON.stringify(data));
@@ -101,6 +104,36 @@ export default function SignupScreen() {
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Country
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="country"
+                    name="country"
+                    onChange={(e) => {
+                      const selectedCountry = countriesList.find(
+                        (c) => c.code === e.target.value
+                      );
+                      setCountry(selectedCountry);
+                    }}
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  >
+                    <option value="">Select Country</option>
+                    {countriesList.map((country) => (
+                      <option key={country.code} value={country.code}>
+                        {country.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
 

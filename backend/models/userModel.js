@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema(
       numReviews: { type: Number, default: 0, required: true },
     },
     videoUrl: { type: String, required: false },
+    country: {
+      name: { type: String, required: true },
+      code: { type: String, required: true },
+    },
   },
   {
     timestamps: true,

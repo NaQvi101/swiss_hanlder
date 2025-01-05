@@ -286,6 +286,7 @@ export default function ProductListScreen(props) {
 
     formData.image = produdtImageUrl;
     formData.userId = userInfo?._id;
+    formData.country = userInfo.country;
     const toastId = toast.loading("The product is being created..");
     const result = await fetch(`${API_URL}api/products`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.

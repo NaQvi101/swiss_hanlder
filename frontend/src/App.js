@@ -133,7 +133,11 @@ function App() {
                 : "side-navbar fixed d-flex justify-content-between flex-wrap flex-column"
             }
           >
-            <Nav className="flex-column text-[#212529] w-100 py-4">
+            <Nav className="flex-column text-[#212529] w-100 py-4 flex-nowrap" style={{
+              overflowY: 'auto',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}>
               <Nav.Item className="px-3 mb-3">
                 <strong className="text-2xl font-bold text-[#212529] ">
                   Categories
