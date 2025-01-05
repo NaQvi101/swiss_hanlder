@@ -8,9 +8,11 @@ import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { API_URL } from "../utils";
+import { useState } from "react";
 
 const Product = (props) => {
   const { product } = props;
+  const [country, setCountry] = useState(product?.country);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
@@ -60,11 +62,17 @@ const Product = (props) => {
           />
         </div>
         <div className="sm:py-6 py-2 text-center">
-          <h3 className="text-sm font-medium text-gray-900">
+          <h3 className="text-sm font-medium text-gray-900 flex items-center justify-center space-x-2">
             <Link to={`/product/${product?.slug}`}>
-              {/* <span aria-hidden="true" className="absolute inset-0" /> */}
               {product?.name}
             </Link>
+            {country && (
+              <img
+                src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                alt={`${country.name} flag`}
+                className="w-6 h-4"
+              />
+            )}
           </h3>
           <div className="sm:mt-3 mt-1 flex flex-col items-center">
             <p className="sr-only">{product?.rating} out of 5 stars</p>
@@ -89,11 +97,10 @@ const Product = (props) => {
                 ? null
                 : () => addToCartHandler(product)
             }
-            className={`${
-              product?.countInStock === 0
-                ? "cursor-not-allowed"
-                : "cursor-pointer"
-            }  relative flex items-center justify-center sm:rounded-md sm:border border-transparent bg-gray-100 px-3 py-2 text-sm sm:w-max w-full mx-auto font-medium text-gray-900 hover:bg-gray-200`}
+            className={`${product?.countInStock === 0
+              ? "cursor-not-allowed"
+              : "cursor-pointer"
+              }  relative flex items-center justify-center sm:rounded-md sm:border border-transparent bg-gray-100 px-3 py-2 text-sm sm:w-max w-full mx-auto font-medium text-gray-900 hover:bg-gray-200`}
           >
             {product?.countInStock === 0 ? (
               "Out of stock"
@@ -106,39 +113,6 @@ const Product = (props) => {
         </div>
       </div>
     </>
-
-    // <Card className="product" key={product?.slug}>
-    //   <Link to={`/product/${product?.slug}`}>
-    //     <img
-    //       src={product?.image}
-    //       className="card-img-top"
-    //       alt={product?.name}
-    //     />
-    //   </Link>
-    //   <Card.Body>
-    //     <Link to={`/product/${product?.slug}`}>
-    //       <Card.Title>{product?.name}</Card.Title>
-    //     </Link>
-    //     <Rating rating={product?.rating} numReviews={product?.numReviews} />
-    //     <Row className="my-2">
-    //       <Col>
-    //         <Card.Text>${product?.price}</Card.Text>
-    //       </Col>
-    //       <Col>
-    //         <Link to={product ? `/seller/${product?.seller?._id}` : "#"}>
-    //           {product?.seller?.name}
-    //         </Link>
-    //       </Col>
-    //     </Row>
-    //     {product.countInStock === 0 ? (
-    //       <Button variant="light" disabled>
-    //         Out of stock
-    //       </Button>
-    //     ) : (
-    //       <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
-    //     )}
-    //   </Card.Body>
-    // </Card>
   );
 };
 

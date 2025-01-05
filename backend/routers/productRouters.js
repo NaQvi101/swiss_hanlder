@@ -71,6 +71,7 @@ productRouter.post(
       rating: 0,
       numReviews: 0,
       description: req.body.product_desc,
+      country: req.body.country,
     });
     console.log("newProduct ", newProduct);
     try {
