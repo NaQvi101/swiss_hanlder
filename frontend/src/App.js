@@ -48,6 +48,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import SubscriptionScreen from "./screens/SubscriptionScreen";
 import SuccessScreen from "./screens/SuccessScreen";
+import FeaturedSellerScreen from "./screens/FeaturedSellerScreen";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -110,8 +111,8 @@ function App() {
                 ? "site-container active-cont d-flex flex-column full-box"
                 : "site-container active-cont d-flex flex-column"
               : fullBox
-                ? "site-container d-flex flex-column full-box"
-                : "site-container d-flex flex-column"
+              ? "site-container d-flex flex-column full-box"
+              : "site-container d-flex flex-column"
           }
         >
           <ToastContainer position="bottom-center" limit={1} />
@@ -159,12 +160,19 @@ function App() {
           <main>
             <Routes>
               <Route path="/seller/:id" element={<SellerScreen />}></Route>
+              <Route
+                path="/featured-seller/:id"
+                element={<FeaturedSellerScreen />}
+              ></Route>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
-              <Route path="/chat/:productId" element={<Chat key="chat-seller" />} />
+              <Route
+                path="/chat/:productId"
+                element={<Chat key="chat-seller" />}
+              />
               <Route exact path="/chat" element={<Chat key="chat" />} />
               <Route
                 path="/profile"
@@ -312,10 +320,7 @@ function App() {
                 path="/subscription"
                 element={<SubscriptionScreen />}
               ></Route>
-              <Route
-                path="/success"
-                element={<SuccessScreen />}
-              ></Route>
+              <Route path="/success" element={<SuccessScreen />}></Route>
             </Routes>
           </main>
         </div>
