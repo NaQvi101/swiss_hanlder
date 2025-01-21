@@ -51,13 +51,13 @@ export default function FeaturedSellerScreen(props) {
         // const result = await axios.get(
         //   `${API_URL}api/products?seller=${sellerId}`
         // );
-        // const result = await axios.get(`${API_URL}api/products/seller`, {
-        //   params: {
-        //     id: sellerId,
-        //   },
-        // });
+        const result = await axios.get(`${API_URL}api/products/seller`, {
+          params: {
+            id: sellerId,
+          },
+        });
 
-        // dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
 
         dispatch({ type: "FETCH_SELLER_REQUEST" });
         const user = await axios.get(`${API_URL}api/users/seller/${sellerId}`);
@@ -122,7 +122,7 @@ export default function FeaturedSellerScreen(props) {
             </Card>
           )}
         </Col>
-        {/* <Col md={9}>
+        <Col md={9}>
           <Row>
             {loading ? (
               <LoadingBox></LoadingBox>
@@ -141,7 +141,7 @@ export default function FeaturedSellerScreen(props) {
               </>
             )}
           </Row>
-        </Col> */}
+        </Col>
       </Row>
     </>
   );

@@ -8,7 +8,7 @@ export const getError = (error) => {
 export const API_URL = "http://77.37.51.85:5001/";
 export const PRODUCT_QUERY_MESSAGE = "Hi, I want to know about this product.";
 
-//export const API_URL = "http://localhost:5001/";
+//export const API_URL = "http://localhost:5050/";
 
 export function timeAgo(date) {
   const now = new Date();
@@ -21,22 +21,21 @@ export function timeAgo(date) {
   const yearsAgo = Math.floor(daysAgo / 365);
 
   if (secondsAgo < 60) {
-    return 'Now';
+    return "Now";
   } else if (minutesAgo < 60) {
-    return minutesAgo === 1 ? '1 minute ago' : `${minutesAgo} minutes ago`;
+    return minutesAgo === 1 ? "1 minute ago" : `${minutesAgo} minutes ago`;
   } else if (hoursAgo < 24) {
-    return hoursAgo === 1 ? '1 hour ago' : `${hoursAgo} hours ago`;
+    return hoursAgo === 1 ? "1 hour ago" : `${hoursAgo} hours ago`;
   } else if (daysAgo < 7) {
-    return daysAgo === 1 ? '1 day ago' : `${daysAgo} days ago`;
+    return daysAgo === 1 ? "1 day ago" : `${daysAgo} days ago`;
   } else if (weeksAgo < 5) {
-    return weeksAgo === 1 ? '1 week ago' : `${weeksAgo} weeks ago`;
+    return weeksAgo === 1 ? "1 week ago" : `${weeksAgo} weeks ago`;
   } else if (monthsAgo < 12) {
-    return monthsAgo === 1 ? '1 month ago' : `${monthsAgo} months ago`;
+    return monthsAgo === 1 ? "1 month ago" : `${monthsAgo} months ago`;
   } else {
-    return yearsAgo === 1 ? '1 year ago' : `${yearsAgo} years ago`;
+    return yearsAgo === 1 ? "1 year ago" : `${yearsAgo} years ago`;
   }
 }
-
 
 export const delay = async (ms) => {
   await new Promise((resolve, reject) => {
