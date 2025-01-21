@@ -71,10 +71,12 @@ export default function FeaturedSellerScreen(props) {
     fetchData();
   }, [sellerId]);
 
+  console.log("user", user);
+
   return (
     <>
       <Row>
-        <Col md={3}>
+        <Col md={12}>
           {loadingSeller ? (
             <LoadingBox />
           ) : error ? (
@@ -122,7 +124,9 @@ export default function FeaturedSellerScreen(props) {
             </Card>
           )}
         </Col>
-        <Col md={9}>
+      </Row>
+      <Row>
+        <Col md={12}>
           <Row>
             {loading ? (
               <LoadingBox></LoadingBox>
@@ -143,6 +147,22 @@ export default function FeaturedSellerScreen(props) {
           </Row>
         </Col>
       </Row>
+      {user.videoUrl && (
+        <Row>
+          <Col md={12}>
+            <div className="video-section bg-[#cb202c] p-6 rounded-lg shadow-lg mt-6">
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 text-white">
+                Profile Video
+              </h3>
+              <video
+                src={user.videoURL}
+                controls
+                className="w-full rounded-lg shadow-md"
+              />
+            </div>
+          </Col>
+        </Row>
+      )}
     </>
   );
 }

@@ -8,7 +8,7 @@ export const getError = (error) => {
 export const API_URL = "http://77.37.51.85:5001/";
 export const PRODUCT_QUERY_MESSAGE = "Hi, I want to know about this product.";
 
-//export const API_URL = "http://localhost:5050/";
+// export const API_URL = "http://localhost:5050/";
 
 export function timeAgo(date) {
   const now = new Date();
