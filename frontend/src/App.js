@@ -130,11 +130,11 @@ function App() {
             ref={sideBarRef}
             className={
               sidebarIsOpen
-                ? "active-nav fixed side-navbar d-flex justify-content-between flex-wrap flex-column shadow-xl"
-                : "side-navbar fixed d-flex justify-content-between flex-wrap flex-column"
+                ? "active-nav overflow-scroll fixed side-navbar d-flex justify-content-between flex-column shadow-xl"
+                : "side-navbar fixed d-flex justify-content-between flex-column"
             }
           >
-            <Nav className="flex-column text-[#212529] w-100 py-4">
+            <Nav className="flex flex-col text-[#212529] w-100 py-4">
               <Nav.Item className="px-3 mb-3">
                 <strong className="text-2xl font-bold text-[#212529] ">
                   Categories
