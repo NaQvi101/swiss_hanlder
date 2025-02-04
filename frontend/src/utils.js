@@ -5,7 +5,7 @@ export const getError = (error) => {
     : error.message;
 };
 
-export const API_URL = "http://77.37.51.85:5001/";
+export const API_URL = "https://backend.swisshandel.com/";
 export const PRODUCT_QUERY_MESSAGE = "Hi, I want to know about this product.";
 
 // export const API_URL = "http://localhost:5050/";
